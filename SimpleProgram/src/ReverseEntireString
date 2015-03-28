@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+
+public class ReverseEntireString {
+
+	public static void revWord(String s){
+		
+
+		String[] sarr = s.split("\\s");
+		String temp;
+		for (int i = sarr.length-1;i>=0;i--){
+			        temp = sarr[i];
+			         for (int j=temp.length()-1;j>=0;j--)      	    
+						    System.out.print(temp.charAt(j));
+			         System.out.print(" ");
+			   
+					    
+		}
+	}
+	
+	public static void revString(String s){
+		
+
+		String[] sarr = s.split("\\s");
+	
+		for (int i = sarr.length-1;i>=0;i--){
+			       
+			   System.out.print(sarr[i]);
+			   System.out.print(" ");
+					    
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       Scanner sc = new Scanner(System.in);
+       System.out.println("enter the word ");
+       String str = sc.nextLine();
+      // String str = "this is sparta";
+       revString(str);
+       revWord(str);
+	}
+
+}
