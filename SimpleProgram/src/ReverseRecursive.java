@@ -13,7 +13,7 @@ public class ReverseRecursive {
 	public static void main(String [] args){
 		
 		  System.out.println(recReverse("hello"));
-		  System.out.println(recReverse("premchand"));
+		  
 		  System.out.println(recReverse("pranay"));
 		  System.out.println(recReverse("ReverseMe"));
 		
