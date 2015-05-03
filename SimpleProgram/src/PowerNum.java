@@ -6,7 +6,7 @@ public class PowerNum {
 	public static int pow(int n, int  base){
 		int pow =1;
 		for (int i =0 ;i<n;i++){
-			pow=base*n;
+			pow=base*pow;
 			
 		}
 		return pow;
