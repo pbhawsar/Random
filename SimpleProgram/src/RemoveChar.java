@@ -24,6 +24,17 @@ public class RemoveChar {
 		return word;
 	} 
 	
+	// another way
+	public static String removeX(char c, String str ){
+		
+	 
+		
+		int index=str.indexOf(c);
+	
+		
+		return str.substring(0,index)+str.substring(index+1);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
      @SuppressWarnings("resource")
