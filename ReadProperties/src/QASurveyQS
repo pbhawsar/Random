@@ -1,0 +1,28 @@
+QA Survey
+Instructions
+You are given 2 hours to complete these two questions and email the answer back.
+Write a program in the language of your choice to answer each of the following questions.
+Your solution is expected to be executable, meaning that it should be written in a real language (not psuedocode), and there should be no undefined functions or methods. Standard, well- known library calls are fine. Comments in the code are appreciated.
+Question 1
+You are working at a grocery store and you are asked to track customers' purchasing habits by scanning frequent shoppers cards. Your cash register logs all transactions to a pipe-delimited ("|") flat text file in the following format:
+customer_name|product_category|item_description|cost
+An example log file is:
+Pedro|groceries|apple|1.42 Nitin|tobacco|cigarettes|15.00 Susie|groceries|cereal|5.50 Susie|groceries|milk|4.75 Susie|tobacco|cigarettes|15.00 Susie|fuel|gasoline|44.90 Pedro|fuel|propane|9.60
+All the items have a sales tax of 9.25%.
+Write a script/program (in your language of choice) that will parse the log and generate the following output:
+1. A report of the total revenue from each customer
+2. A report for each customer showing how much of their spending went to each category.
+3. Show the sales tax component for each of the reports.
+￼￼￼
+With the above example log file, the script should output should look something like:
+Total revenue by customer: Pedro - $11.02
+Nitin - $15.00
+Susie - $70.15
+Purchases by Pedro: groceries - $1.42 fuel - $9.60
+Purchases by Nitin: tobacco - $15.00
+Purchases by Susie: groceries - $10.25 fuel - $44.90 tobacco - $15.00
+Question 2
+Write a function in the language of your choice that:
+• Takes as its only parameter a sentence stored in a string (e.g., “This is a short sentence.”) .
+• Returns a string consisting of the number of characters in each word (including punctuation), with spaces separating the numbers. (e.g., “4 2 1 5 9”).
+￼
