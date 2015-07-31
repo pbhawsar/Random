@@ -1,0 +1,144 @@
+// Question 1
+
+package Question1;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class OrderHistory {
+	
+	public static void purchaseHistory(){
+		File file = new File("C:\\Documents and Settings\\monu\\Desktop\\stores.txt");
+		HashMap<String,Float> hm1 = new HashMap<String,Float>();
+		//HashMap used to store customer name and total cost
+		HashMap<String,Float> hm2 = new HashMap<String,Float>();
+		//HashMap used to store category name and total cost
+		
+		try {
+			Scanner input = new Scanner(file);
+			// scanner used to read file
+			while(input.hasNextLine()){
+				String str = input.nextLine();
+				System.out.println(str);
+				String[] info = str.split("[|]");
+				String name = info[0];
+				String type = info[1];
+				Float cost = Float.parseFloat(info[3]);
+				if(hm1.get(name)==null){
+					hm1.put(name,cost);
+					hm2.put(name+"-"+type,cost);
+				}else if(hm1.containsKey(name)==true){
+					hm1.put(name, hm1.get(name)+cost);
+					if(hm2.containsKey(name+"-"+type)==true){
+						hm2.put(name+"-"+type,hm2.get(name+"-"+type)+cost);
+					}else{
+						hm2.put(name+"-"+type, cost);
+					}
+				}
+			}
+			//printing total revenue by customer with  tax component
+			System.out.println();
+			System.out.println("Total revenue by customer: ");
+			for(String name:hm1.keySet()){
+				System.out.println(name+": "+hm1.get(name));
+				double value =(hm1.get(name)*9.25/100);
+				System.out.println("tax component is : "+value);
+				
+			}
+			//printing spending as per category by each customer with tax component
+			System.out.println();
+			for(String name:hm1.keySet()){
+				System.out.println("\n Purchase by: "+name);
+				for(String nametype:hm2.keySet()){
+					String[] name1=nametype.split("[-]");
+					if(name.equals(name1[0])){
+						double value = (hm2.get(nametype)*9.25/100);
+						System.out.println("\t"+name1[1]+": "+hm2.get(nametype) + "\t tax component: "+value);
+					}
+				}
+			}
+		}
+		catch(FileNotFoundException e){
+		e.printStackTrace();	
+		}
+	}
+	
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+purchaseHistory();
+	}
+
+}
+
+-----------------------------------------------------------------------------------------------------------------
+OUTPUT:Question 1
+
+Pedro|groceries|apple|1.42
+Nitin|tobacco|cigarettes|15.00
+Susie|groceries|cereal|5.50
+Susie|groceries|milk|4.75
+Susie|tobacco|cigarettes|15.00
+Susie|fuel|gasoline|44.90
+Pedro|fuel|propane|9.60
+
+Total revenue by customer: 
+Nitin: 15.0
+tax component is : 1.3875
+Pedro: 11.02
+tax component is : 1.0193500423431396
+Susie: 70.15
+tax component is : 6.488875141143799
+
+
+ Purchase by: Nitin
+	tobacco: 15.0	 tax component: 1.3875
+
+ Purchase by: Pedro
+	fuel: 9.6	 tax component: 0.8880000352859497
+	groceries: 1.42	 tax component: 0.13134999603033065
+
+ Purchase by: Susie
+	fuel: 44.9	 tax component: 4.153250141143799
+	tobacco: 15.0	 tax component: 1.3875
+	groceries: 10.25	 tax component: 0.948125
+-------------------------------------------------------------------------------------------------------------------
+//Question 2
+
+package Question2;
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class StringCount {
+
+	public static void main(String args[]){
+		
+		System.out.println("enter a sentence: ");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String in = br.readLine();
+			if(in != null){
+				String[] words = in.split("[ ]");
+				for(String word:words){
+					System.out.print(word.length()+" ");
+				}
+			}else{
+				System.out.println("enter a valid sentence.");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------------
+OUTPUT: Question 2
+
+enter a sentence: 
+Test: A short sentence.
+5 1 5 9 
